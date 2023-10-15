@@ -97,6 +97,5 @@ onMounted(Buscar)
 .my-card
   width: 100%
   max-width: 800px
-
   
 </style>
