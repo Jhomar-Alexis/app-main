@@ -1,21 +1,24 @@
 <template>
-  <q-page padding style="background-color: #6BB2A0; " class="flex flex-center">
-    <div class=" q-gutter-sm">
-      <div class="row q-gutter-sm items-center">
-        <q-input v-model="dni" outlined dense rounded debounce="100" placeholder="Ingresar DNI" clearable dark
-          maxlength="8 " bg-color="black" label-color="white" :rules="[
-            (val) =>
-              (val && val.length == 8) ||
-              'Ingrese DNI válido',
-          ]">
-          <template v-slot:append>
-            <q-icon name="search" color="white" @click="Buscar" style="cursor: pointer;" />
-          </template>
-        </q-input>
-      </div>
-      <q-table title="CONSULTA POR DNI" :rows="rows" :columns="columns" row-key="id" dense :loading="loading" dark
-        separator="vertical" class="card-rounded-borders" style="padding: 30px; width: 900px;"></q-table>
+  <q-page padding style="background-color: #6BB2A0; ">
+    <div class="q-pa-md">
+      <q-card class="my-card" style="background-color: #6BB2A0; ">
+        <q-card-section>
+          <div class="row q-gutter-sm items-center">
+            <q-input v-model="dni" outlined dense rounded debounce="100" placeholder="Ingresar DNI" clearable dark
+              maxlength="8 " bg-color="black" label-color="white" :rules="[
+                (val) =>
+                  (val && val.length == 8) ||
+                  'Ingrese DNI válido',
+              ]">
+              <template v-slot:append>
+                <q-icon name="search" color="white" @click="Buscar" style="cursor: pointer;" />
+              </template>
+            </q-input></div>
+        </q-card-section><q-table title="CONSULTA POR DNI" :rows="rows" :columns="columns" row-key="id" dense
+          :loading="loading" dark separator="vertical" class="dni card-rounded-borders" style="padding: 30px;"
+          hide-pagination></q-table></q-card>
     </div>
+    
     <div class="q-pa-md q-gutter-sm">
       <q-dialog v-model="dialog" persistent transition-show="scale" transition-hide="scale">
         <q-card class="text-white" style="width: 300px; background-color: #2C6975;">
@@ -90,3 +93,10 @@ const Buscar = async () => {
 
 onMounted(Buscar)
 </script>
+<style lang="sass" scoped>
+.my-card
+  width: 100%
+  max-width: 800px
+
+  
+</style>

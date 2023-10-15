@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header reveal v-show="$route.path != '/'">
+    <q-header reveal>
       <q-toolbar style="background-color: #6BB2A0;">
         <q-btn v-if="!$q.platform.is.desktop" flat round icon="menu" @click="leftDrawerOpen = !leftDrawerOpen" />
       </q-toolbar>
@@ -13,8 +13,9 @@
           border-right: 1px solid #2C6975;
         ">
         <q-list padding>
-          <q-item v-ripple to="/dni" clickable class=" text-bold link-item" active-class="bg-orange"
-            :class="$route.path === '/dni' ? 'active-link' : ''">
+          <q-item v-ripple to="/" clickable class=" text-bold link-item" active-class="bg-orange"
+            :class="$route.path === '/' ? 'active-link' : ''">
+            {{console.log($route)}}
             <q-item-section avatar>
               <q-icon class="text-white" name="mdi-clipboard-text-search" />
             </q-item-section>

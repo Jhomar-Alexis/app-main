@@ -1,15 +1,15 @@
 import MainLayout from "layouts/MainLayout.vue";
 const routes = [
   {
-    path: "",
+    path: "/",
     component: MainLayout,
     children: [
-      {
-        path: "",
-        name: "home",
-        redirect: "/dni",
-      },
-      { path: "/dni", component: () => import("pages/IndexPage.vue") },
+      // {
+      //   path: "",
+      //   name: "home",
+      //   redirect: "",
+      // },
+      { path: "/", component: () => import("pages/IndexPage.vue") },
       { path: "/ruc", component: () => import("pages/RucPage.vue") },
     ],
   },
